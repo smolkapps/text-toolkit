@@ -1,0 +1,31 @@
+[package]
+name = "text-toolkit"
+version = "0.1.0"
+edition = "2021"
+description = "A fast, dependency-light CLI for common text operations (wc, dedup, sort, case, freq, wrap, trim, number, head/tail, replace)."
+license = "MIT"
+readme = "README.md"
+repository = ""
+keywords = ["text", "cli", "wc", "sort", "dedup"]
+categories = ["command-line-utilities", "text-processing"]
+
+[[bin]]
+name = "text-toolkit"
+path = "src/main.rs"
+
+[lib]
+name = "text_toolkit"
+path = "src/lib.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+regex = "1"
+anyhow = "1"
+
+[dev-dependencies]
+assert_cmd = "2"
+predicates = "3"
+
+[profile.release]
+lto = true
+opt-level = 3
